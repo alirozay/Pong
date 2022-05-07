@@ -4,12 +4,16 @@ from turtle import Turtle
 class Ball(Turtle):
     x_cord: int
     y_cord: int
+    move_speed: int
 
     def __init__(self) -> None:
         super().__init__("circle")
         self.pu()
         self.color("purple")
         self.shapesize(stretch_wid=0.5, stretch_len=0.5)
+        self.x_cord = 10
+        self.y_cord = 10
+        self.move_speed = 0.2
         self.go_towards_right()
 
     def move(self) -> None:
@@ -28,6 +32,7 @@ class Ball(Turtle):
 
     def bounce_paddle(self) -> None:
         self.x_cord *= -1
+        self.move_speed *= 0.9
 
     def reset_position(self) -> None:
         self.clear()
